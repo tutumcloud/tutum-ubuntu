@@ -1,15 +1,17 @@
 tutum-ubuntu
 ============
 
-Simple ubuntu docker image with SSH access
+Simple ubuntu docker images with SSH access
 
 
 Usage
 -----
 
-To create the image `tutum/ubuntu`, execute the following command on the tutum-ubuntu folder:
+To create the image `tutum/ubuntu`, execute the following commands on the tutum-ubuntu folder:
 
-	docker build -t tutum/ubuntu .
+	docker build -t tutum/ubuntu:precise precise/
+
+	docker build -t tutum/ubuntu:quantal quantal/
 
 
 Running tutum/ubuntu
@@ -17,7 +19,7 @@ Running tutum/ubuntu
 
 Run a container from the image you created earlier:
 
-	sudo docker run -d -p 0.0.0.0::22 tutum/ubuntu
+	sudo docker run -d -p 0.0.0.0::22 tutum/ubuntu:quantal
 
 
 It will print the new container ID (like `d35bf1374e88`). Get the allocated external port:
