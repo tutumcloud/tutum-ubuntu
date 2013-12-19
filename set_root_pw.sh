@@ -7,7 +7,7 @@ fi
 
 PASS=$(pwgen -s 12 1)
 echo "=> Setting a random password to the 'root' user"
-echo 'root:$PASS' | chpasswd
+echo "root:$PASS" | chpasswd
 
 echo "=> Done!"
 touch /.root_pw_set
