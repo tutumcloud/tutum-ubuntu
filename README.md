@@ -12,6 +12,10 @@ To create the image `tutum/ubuntu`, execute the following commands on the tutum-
 	docker build -t tutum/ubuntu:precise precise/
 
 	docker build -t tutum/ubuntu:quantal quantal/
+	
+	docker build -t tutum/ubuntu:raring raring/
+
+	docker build -t tutum/ubuntu:saucy saucy/
 
 
 Running tutum/ubuntu
