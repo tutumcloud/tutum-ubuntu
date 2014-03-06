@@ -5,8 +5,9 @@ if [ -f /.root_pw_set ]; then
 	exit 0
 fi
 
-PASS=$(pwgen -s 12 1)
-echo "=> Setting a random password to the 'root' user"
+PASS=${ROOT_PASS:-$(pwgen -s 12 1)}
+_word=$( [ ${ROOT_PASS} ] && echo "preset" || echo "random" )
+echo "=> Setting a ${_word} password to the root user"
 echo "root:$PASS" | chpasswd
 
 echo "=> Done!"

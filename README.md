@@ -9,32 +9,47 @@ Usage
 
 To create the image `tutum/ubuntu`, execute the following commands on the tutum-ubuntu folder:
 
+	docker build -t tutum/ubuntu:lucid lucid/
 	docker build -t tutum/ubuntu:precise precise/
-
 	docker build -t tutum/ubuntu:quantal quantal/
-	
 	docker build -t tutum/ubuntu:raring raring/
-
 	docker build -t tutum/ubuntu:saucy saucy/
 
 
 Running tutum/ubuntu
 --------------------
 
-Run a container from the image you created earlier:
+To run a container from the image you created earlier with the `saucy` tag 
+binding it to port 2222 in all interfaces, execute:
 
-	sudo docker run -d -p 0.0.0.0::22 tutum/ubuntu:quantal
+	docker run -d -p 0.0.0.0:2222:22 tutum/ubuntu:saucy
+
+The first time that you run your container, a random password will be generated
+for user `root`. To get the password, check the logs of the container by running:
+
+	docker logs <CONTAINER_ID>
+
+You will see an output like the following:
+
+	========================================================================
+	You can now connect to this Ubuntu container via SSH using:
+
+	    ssh -p <port> root@<host>
+	and enter the root password 'U0iSGVUCr7W3' when prompted
+
+	Please remember to change the above password as soon as possible!
+	========================================================================
+
+In this case, `U0iSGVUCr7W3` is the password allocated to the `root` user.
+
+Done!
 
 
-It will print the new container ID (like `d35bf1374e88`). Get the allocated external port:
+Setting a specific password for the root account
+------------------------------------------------
 
-	sudo docker port d35bf1374e88 22
+If you want to use a preset password instead of a random generated one, you can
+set the environment variable `ROOT_PASS` to your specific password when running the container:
 
+	docker run -d -p 0.0.0.0:2222:22 -e ROOT_PASS="mypass" tutum/ubuntu:saucy
 
-It will print the allocated port (like 0.0.0.0:4751). Test your deployment:
-
-	ssh -p 4751 root@localhost
-
-Use `changeme` as the initial password.
-
-Enjoy!
