@@ -1,19 +1,29 @@
 tutum-ubuntu
 ============
 
-Simple ubuntu docker images with SSH access
+Simple Ubuntu docker images with SSH access
 
 
 Usage
 -----
 
-To create the image `tutum/ubuntu`, execute the following commands on the tutum-ubuntu folder:
+To create the image `tutum/ubuntu` with one tag per Ubuntu release, 
+execute the following commands on the tutum-ubuntu folder:
 
 	docker build -t tutum/ubuntu:lucid lucid/
 	docker build -t tutum/ubuntu:precise precise/
 	docker build -t tutum/ubuntu:quantal quantal/
 	docker build -t tutum/ubuntu:raring raring/
 	docker build -t tutum/ubuntu:saucy saucy/
+
+To create different images for every Ubuntu release, with just one `latest` tag each, 
+execute the following commands on the tutum-ubuntu folder:
+
+	docker build -t tutum/ubuntu-lucid lucid/
+	docker build -t tutum/ubuntu-precise precise/
+	docker build -t tutum/ubuntu-quantal quantal/
+	docker build -t tutum/ubuntu-raring raring/
+	docker build -t tutum/ubuntu-saucy saucy/
 
 
 Running tutum/ubuntu
