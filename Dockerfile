@@ -1,5 +1,5 @@
-FROM ubuntu:trusty
-MAINTAINER Todd Sampson <tsampson@cloudspace.com>
+FROM ubuntu:latest
+MAINTAINER Honglin Feng <hfeng@tutum.co> 
 
 # Install packages
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install openssh-server pwgen
