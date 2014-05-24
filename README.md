@@ -8,24 +8,28 @@ Usage
 -----
 
 To create the image `tutum/ubuntu` with one tag per Ubuntu release, 
-execute the following commands on the tutum-ubuntu folder:
-
-	docker build -t tutum/ubuntu:lucid lucid/
-	docker build -t tutum/ubuntu:precise precise/
-	docker build -t tutum/ubuntu:quantal quantal/
-	docker build -t tutum/ubuntu:raring raring/
-	docker build -t tutum/ubuntu:saucy saucy/
-	docker build -t tutum/ubuntu:trusty trusty/
-
-To create different images for every Ubuntu release, with just one `latest` tag each, 
-execute the following commands on the tutum-ubuntu folder:
-
-	docker build -t tutum/ubuntu-lucid lucid/
-	docker build -t tutum/ubuntu-precise precise/
-	docker build -t tutum/ubuntu-quantal quantal/
-	docker build -t tutum/ubuntu-raring raring/
-	docker build -t tutum/ubuntu-saucy saucy/
-	docker build -t tutum/ubuntu-trusty trusty/
+execute the following commands on the tutum-ubuntu branch:
+	
+	git checkout master
+	docker build -t tutum/ubuntu:latest .
+	
+	git checkout lucid
+	docker build -t tutum/ubuntu:lucid .
+	
+	git checkout precise
+	docker build -t tutum/ubuntu:precise .
+	
+	git checkout quantal
+	docker build -t tutum/ubuntu:quantal .
+	
+	git checkout raring
+	docker build -t tutum/ubuntu:raring .
+	
+	git checkout saucyy
+	docker build -t tutum/ubuntu:saucy .
+	
+	git checkout trusty
+	docker build -t tutum/ubuntu:trusty .
 
 
 Running tutum/ubuntu
@@ -64,4 +68,3 @@ If you want to use a preset password instead of a random generated one, you can
 set the environment variable `ROOT_PASS` to your specific password when running the container:
 
 	docker run -d -p 0.0.0.0:2222:22 -e ROOT_PASS="mypass" tutum/ubuntu:trusty
-
