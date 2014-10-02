@@ -1,0 +1,10 @@
+machine:
+  services:
+    - docker
+dependencies:
+  override:
+    - docker build -t sut .
+test:
+  override:
+    - docker run -d -p 2202:22 sut; sleep 10
+    - nc -z 127.0.0.1 2202
