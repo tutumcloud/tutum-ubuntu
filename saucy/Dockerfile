@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:saucy
 MAINTAINER Honglin Feng <hfeng@tutum.co> 
 
 # Install packages
