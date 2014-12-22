@@ -60,5 +60,15 @@ Setting a specific password for the root account
 If you want to use a preset password instead of a random generated one, you can
 set the environment variable `ROOT_PASS` to your specific password when running the container:
 
-	docker run -d -p 0.0.0.0:2222:22 -e ROOT_PASS="mypass" tutum/ubuntu:trusty
+	docker run -d -p 2222:22 -e ROOT_PASS="mypass" tutum/ubuntu:trusty
+
+
+Adding authorized keys
+----------------------
+
+If you want to use ssh key for login, you can use `AUTHORIZED_KEYS` environment variable. The public keys are separated by `,`:
+
+    docker run -d -p 2222:22 AUTHORIZED_KEYS="pubkey1, pubkey2, pubkey3" tutum/ubunut:trusty
+
+If you put the corresponding private key under `~/.ssh/` where you run ssh command, you will not be asked to input the password.
 
