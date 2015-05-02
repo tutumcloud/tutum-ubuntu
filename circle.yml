@@ -6,24 +6,19 @@ dependencies:
     - docker build -t latest .
     - docker build -t lucid lucid/
     - docker build -t precise precise/
-    - docker build -t quantal quantal/
-    - docker build -t raring raring/
-    - docker build -t saucy saucy/
     - docker build -t trusty trusty/
+    - docker build -t utopic utopic/
+    - docker build -t vivid vivid/
 test:
   override:
     - docker run -d -p 2201:22 lucid
-    - docker run -d -p 2202:22 lucid
-    - docker run -d -p 2203:22 precise
-    - docker run -d -p 2204:22 quantal
-    - docker run -d -p 2205:22 raring
-    - docker run -d -p 2206:22 saucy
-    - docker run -d -p 2207:22 trusty
-    - sleep 10
+    - docker run -d -p 2202:22 precise
+    - docker run -d -p 2203:22 trusty
+    - docker run -d -p 2204:22 utopic
+    - docker run -d -p 2205:22 vivid
+    - sleep 5
     - nc -z 127.0.0.1 2201
     - nc -z 127.0.0.1 2202
     - nc -z 127.0.0.1 2203
     - nc -z 127.0.0.1 2204
     - nc -z 127.0.0.1 2205
-    - nc -z 127.0.0.1 2206
-    - nc -z 127.0.0.1 2207

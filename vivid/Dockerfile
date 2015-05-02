@@ -1,4 +1,4 @@
-FROM ubuntu:saucy
+FROM ubuntu:vivid
 MAINTAINER Honglin Feng <hfeng@tutum.co> 
 
 # Install packages
