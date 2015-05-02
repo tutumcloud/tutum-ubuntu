@@ -63,12 +63,10 @@ set the environment variable `ROOT_PASS` to your specific password when running 
 	docker run -d -p 2222:22 -e ROOT_PASS="mypass" tutum/ubuntu:trusty
 
 
-Adding authorized keys
-----------------------
+Adding SSH authorized keys
+--------------------------
 
-If you want to use ssh key for login, you can use `AUTHORIZED_KEYS` environment variable. The public keys are separated by `,`:
+If you want to use your SSH key to login, you can use `AUTHORIZED_KEYS` environment variable. You can add more than one public key separating them by `,`:
 
-    docker run -d -p 2222:22 AUTHORIZED_KEYS="pubkey1, pubkey2, pubkey3" tutum/ubuntu:trusty
-
-If you put the corresponding private key under `~/.ssh/` where you run ssh command, you will not be asked to input the password.
+    docker run -d -p 2222:22 -e AUTHORIZED_KEYS="`cat ~/.ssh/id_rsa.pub`" tutum/ubuntu:trusty
 
