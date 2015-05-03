@@ -11,18 +11,11 @@ To create the image `tutum/ubuntu` with one tag per Ubuntu release,
 execute the following commands on the tutum-ubuntu branch:
 	
 	docker build -t tutum/ubuntu:latest .
-	
 	docker build -t tutum/ubuntu:lucid lucid/
-	
 	docker build -t tutum/ubuntu:precise precise/
-	
-	docker build -t tutum/ubuntu:quantal quantal/
-	
-	docker build -t tutum/ubuntu:raring raring/
-	
-	docker build -t tutum/ubuntu:saucy saucy/
-	
 	docker build -t tutum/ubuntu:trusty trusty/
+	docker build -t tutum/ubuntu:utopic utopic/
+	docker build -t tutum/ubuntu:vivid vivid/
 
 
 Running tutum/ubuntu
