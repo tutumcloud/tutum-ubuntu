@@ -1,15 +1,17 @@
 tutum-ubuntu
 ============
 
+[![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/)
+
 Simple Ubuntu docker images with SSH access
 
 
 Usage
 -----
 
-To create the image `tutum/ubuntu` with one tag per Ubuntu release, 
+To create the image `tutum/ubuntu` with one tag per Ubuntu release,
 execute the following commands on the tutum-ubuntu branch:
-	
+
 	docker build -t tutum/ubuntu:latest .
 	docker build -t tutum/ubuntu:lucid lucid/
 	docker build -t tutum/ubuntu:precise precise/
@@ -21,7 +23,7 @@ execute the following commands on the tutum-ubuntu branch:
 Running tutum/ubuntu
 --------------------
 
-To run a container from the image you created earlier with the `trusty` tag 
+To run a container from the image you created earlier with the `trusty` tag
 binding it to port 2222 in all interfaces, execute:
 
 	docker run -d -p 0.0.0.0:2222:22 tutum/ubuntu:trusty
@@ -62,4 +64,3 @@ Adding SSH authorized keys
 If you want to use your SSH key to login, you can use `AUTHORIZED_KEYS` environment variable. You can add more than one public key separating them by `,`:
 
     docker run -d -p 2222:22 -e AUTHORIZED_KEYS="`cat ~/.ssh/id_rsa.pub`" tutum/ubuntu:trusty
-
