@@ -1,6 +1,8 @@
 tutum-ubuntu
 ============
 
+**This image will be deprecated soon. Please use the docker official image:** https://hub.docker.com/_/ubuntu/
+
 [![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/)
 
 Simple Ubuntu docker images with SSH access
